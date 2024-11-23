@@ -1,15 +1,14 @@
 <template>
-    <div>
-
-    </div>
+  <RegisterForm></RegisterForm>
 </template>
 
 <script>
-    export default {
-        
-    }
+import RegisterForm from "@/components/RegisterForm.vue";
+export default {
+  components: {
+    RegisterForm,
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
