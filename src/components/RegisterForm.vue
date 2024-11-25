@@ -1,7 +1,6 @@
 <template>
   <div class="container-fluid vh-100 d-flex align-items-stretch p-0 m-0">
     <div class="row flex-grow-1 w-100 m-0">
-    
       <div
         class="col-4 d-flex justify-content-center align-items-center text-center p-0"
         style="background-color: #B84EFF; height: 100vh;"
