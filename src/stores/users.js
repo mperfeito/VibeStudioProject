@@ -45,7 +45,9 @@ export const useUsersStore = defineStore("users", {
       return this.users[this.users.length - 1].id + 1;
     },
     deleteUser(id) {
-      this.users = this.users.filter((u) => u.id !== id);
+      if (id !== 0) {
+        this.users = this.users.filter((u) => u.id !== id);
+      }
     },
     blockUser(id) {
       const user = this.users.find((u) => u.id == id);
