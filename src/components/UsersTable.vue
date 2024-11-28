@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <table class="table table-hover ">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th>id</th>
@@ -18,7 +18,11 @@
             <td>{{ user.email }}</td>
             <td>{{ user.blocked ? "blocked" : "unblocked" }}</td>
             <td>
-              <i class="bi bi-gear-fill" @click="openModal(user.id)"></i>
+              <i
+                v-if="user.id !== 0"
+                class="bi bi-gear-fill"
+                @click="openModal(user.id)"
+              ></i>
             </td>
           </tr>
         </tbody>
