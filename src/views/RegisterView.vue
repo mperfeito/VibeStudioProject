@@ -1,32 +1,14 @@
 <template>
-<<<<<<< HEAD
-    <div>
-
-    </div>
+  <RegisterForm></RegisterForm>
 </template>
 
 <script>
-    export default {
-        
-    }
-</script>
-
-<style lang="scss" scoped>
-
-</style>
-=======
-  <LoginForm></LoginForm>
-</template>
-
-<script>
-import LoginForm from "@/components/LoginForm.vue";
-
+import RegisterForm from "@/components/RegisterForm.vue";
 export default {
   components: {
-    LoginForm
-  },
+    RegisterForm
+  }
 };
 </script>
 
 <style lang="scss" scoped></style>
->>>>>>> Mariana
