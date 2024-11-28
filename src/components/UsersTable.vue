@@ -44,20 +44,14 @@
             ></button>
           </div>
           <div class="modal-body d-flex flex-column">
-            <span> Delete User </span>
-            <button
-              @click="deleteUser()"
-              class="btn btn-outline-danger d-grid gap-2 col-6 mb-2"
-            >
-              <i class="bi bi-x-circle"></i>
-            </button>
-            <span> Block User </span>
-            <button
-              @click="blockUser()"
-              class="btn btn-outline-warning d-grid gap-2 col-6"
-            >
-              <i class="bi bi-ban"></i>
-            </button>
+            <div class="d-flex mb-2">
+              <span class="me-2"> Delete User </span>
+              <i @click="deleteUser()" class="bi bi-x-circle text-danger"></i>
+            </div>
+            <div class="d-flex">
+              <span class="me-2"> Block User </span>
+              <i @click="blockUser()" class="bi bi-ban text-warning"></i>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-dark" @click="closeModal()">
