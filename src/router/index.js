@@ -19,42 +19,6 @@ const router = createRouter({
       name: "home",
       component: () => import("../views/RegisterView.vue"),
     },
-    // {
-    //   path: '/about-us',
-    //   name: 'about-us',
-    //   component: () => import ("../views/AboutUsView.vue"),
-    // },
-
-    // {
-    //   path: '/admin',
-    //   name: 'admin',
-    //   component: () => import ("../views/AdminView.vue"),
-    // },
-    // {
-    //   path: '/calendar',
-    //   name: 'calendar',
-    //   component: () => import ("../views/CalendarView.vue"),
-    // },
-    // {
-    //   path: '/packs',
-    //   name: 'packs',
-    //   component: () => import ("../views/PacksView.vue"),
-    // },
-    // {
-    //   path: '/shows',
-    //   name: 'shows',
-    //   component: () => import ("../views/ShowsView.vue"),
-    // },
-    // {
-    //   path: '/payment',
-    //   name: 'payment',
-    //   component: () => import ("../views/PaymentView.vue"),
-    // },
-    // {
-    //   path: '/shows',
-    //   name: 'shows',
-    //   component: () => import ("../views/ShowsView.vue"),
-    // },
   ],
 });
 
