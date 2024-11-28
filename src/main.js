@@ -1,17 +1,15 @@
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import piniaPersistedState from "pinia-plugin-persistedstate"; // Import the plugin
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import App from "./App.vue";
+import router from "./router";
 
+const pinia = createPinia();
+pinia.use(piniaPersistedState);
+const app = createApp(App);
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-
-
-import App from './App.vue'
-import router from './router'
-
-const app = createApp(App)
-
-app.use(createPinia())
-app.use(router)
-
-app.mount('#app')
+app.use(pinia);
+app.use(router);
+app.mount("#app");

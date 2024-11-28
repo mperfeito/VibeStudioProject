@@ -26,6 +26,7 @@ export const useUsersStore = defineStore("users", {
       },
     ],
   }),
+
   actions: {
     addUser(name, email, password) {
       const newUser = {
@@ -52,5 +53,10 @@ export const useUsersStore = defineStore("users", {
         user.blocked = true;
       }
     },
+  },
+
+  persist: {
+    storage: localStorage,
+    pick: ["users"],
   },
 });
