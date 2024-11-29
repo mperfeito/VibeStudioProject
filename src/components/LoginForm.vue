@@ -5,20 +5,23 @@
         <div class="text-center w-50">
           <h1>Login Access</h1>
           <p class="mb-5">Use your email for registration</p>
-         
+
           <input
-            class="form-control mb-3 "
+            class="form-control mb-3"
             type="email"
             placeholder="Email"
             aria-label="default input example"
+            v-model="email"
           />
           <input
             class="form-control mb-4"
             type="password"
             placeholder="Password"
             aria-label="default input example"
+            v-model="password"
           />
-          <button class="btn btn-dark">SIGN UP</button>
+          <button @click="checkLogin()" class="btn btn-dark">SIGN IN</button>
+          <span class="text-danger">{{ loginMessage }}</span>
         </div>
       </div>
       <div
@@ -28,7 +31,8 @@
         <div>
           <h1 class="text-light">Hello, Friend!</h1>
           <p class="mb-5 text-light">
-            Don’t have a account? Don’t worry! <br> Enter with your personal information
+            Don’t have a account? Don’t worry! <br />
+            Enter with your personal information
           </p>
           <button type="button" class="btn btn-outline-light">SIGN UP</button>
         </div>
@@ -38,7 +42,31 @@
 </template>
 
 <script>
-export default {};
+import { useUsersStore } from "@/stores/users.js";
+export default {
+  data() {
+    return {
+      store: useUsersStore(),
+      email: "",
+      password: "",
+      loginMessage: "",
+    };
+  },
+  methods: {
+    checkLogin() {
+      if (this.store.login(this.email, this.password)) {
+        if (this.store.currentUser.id === 0) {
+          this.$router.push("/admin");
+        } else {
+          this.$router.push("/");
+        }
+      } else {
+        this.loginMessage =
+          "Login failed. Please check your email and password.";
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

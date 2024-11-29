@@ -25,6 +25,7 @@ export const useUsersStore = defineStore("users", {
         blocked: false,
       },
     ],
+    currentUser: null,
   }),
 
   actions: {
@@ -55,10 +56,23 @@ export const useUsersStore = defineStore("users", {
         user.blocked = true;
       }
     },
+    login(email, password) {
+      const user = this.users.find(
+        (u) => u.email === email && u.password === password
+      );
+      if (user) {
+        this.currentUser = user;
+        return true;
+      }
+      return false;
+    },
+    logout() {
+      this.currentUser = null;
+    },
   },
 
   persist: {
     storage: localStorage,
-    pick: ["users"],
+    pick: ["users", "currentUser"],
   },
 });
