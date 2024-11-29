@@ -41,7 +41,7 @@ export const useEventsStore = defineStore("events", {
       {
         id: 6,
         name: "Infinite Movements",
-        type: "Contemporany show",
+        type: "Contemporary show",
         totalSeats: 78,
         availableSeats: 78,
       },
@@ -91,9 +91,10 @@ export const useEventsStore = defineStore("events", {
         availableSeats: 23,
       },
     ],
-    persist: {
-      storage: localStorage,
-      pick: ["shows", "workshops"],
-    },
   }),
+
+  persist: {
+    storage: localStorage,
+    pick: ["shows", "workshops"],
+  },
 });

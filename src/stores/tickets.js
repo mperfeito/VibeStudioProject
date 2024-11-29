@@ -36,20 +36,21 @@ export const useTicketsStore = defineStore("tickets", {
         availableTickets: 100,
       },
     ],
-    persist: {
-      storage: localStorage,
-      pick: ["tickets"],
-    },
   }),
 
   actions: {
     buyTicket(ticketId) {
       const ticket = this.tickets.find((t) => t.id === ticketId);
-      if (ticket && availableTickets > 0) {
+      if (ticket && ticket.availableTickets > 0) {
         ticket.availableTickets--;
         return true;
       }
       return false;
     },
+  },
+
+  persist: {
+    storage: localStorage,
+    pick: ["tickets"],
   },
 });

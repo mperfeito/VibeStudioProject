@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import piniaPersistedState from "pinia-plugin-persistedstate"; // Import the plugin
+import piniaPersistedState from "pinia-plugin-persistedstate"; 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import App from "./App.vue";

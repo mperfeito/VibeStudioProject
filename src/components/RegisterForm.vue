@@ -12,7 +12,9 @@
             To keep connected with us, please <br />
             login with your personal info
           </p>
-          <button type="button" class="btn btn-outline-light">SIGN IN</button>
+          <router-link :to="'/login'">
+            <button type="button" class="btn btn-outline-light">SIGN IN</button>
+          </router-link>
         </div>
       </div>
 
@@ -46,6 +48,7 @@
           <div class="text-end mb-3">
             <span class="text-danger">{{ errorMessage }}</span>
           </div>
+
           <button @click="registerUser" class="btn btn-dark">SIGN UP</button>
         </div>
       </div>
@@ -73,11 +76,18 @@ export default {
   methods: {
     registerUser() {
       if (this.name && this.email && this.password) {
-        this.store.addUser(this.name, this.email, this.password);
-        console.log(this.store.users);
+        const userExists = this.store.users.some((u) => u.email === this.email);
+
+        if (!userExists) {
+          this.store.addUser(this.name, this.email, this.password);
+          this.$router.push("/");
+        } else {
+          this.errorMessage = "The user already exists";
+        }
       } else {
         this.errorMessage = "All fields are required!";
       }
+
       this.name = "";
       this.email = "";
       this.password = "";
