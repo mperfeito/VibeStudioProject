@@ -7,10 +7,12 @@
     <router-link to="/login">
       <a href="login">login</a>
     </router-link>
+   
   </div>
 </template>
 
 <script>
+
 export default {};
 </script>
 
