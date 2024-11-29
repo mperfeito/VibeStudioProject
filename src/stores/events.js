@@ -91,5 +91,9 @@ export const useEventsStore = defineStore("events", {
         availableSeats: 23,
       },
     ],
+    persist: {
+      storage: localStorage,
+      pick: ["shows", "workshops"],
+    },
   }),
 });

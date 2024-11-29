@@ -36,6 +36,10 @@ export const useTicketsStore = defineStore("tickets", {
         availableTickets: 100,
       },
     ],
+    persist: {
+      storage: localStorage,
+      pick: ["tickets"],
+    },
   }),
 
   actions: {
