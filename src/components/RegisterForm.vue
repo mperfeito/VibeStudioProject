@@ -82,7 +82,7 @@ export default {
           this.store.addUser(this.name, this.email, this.password);
           this.$router.push("/");
         } else {
-          this.errorMessage = "The user already exists";
+          this.errorMessage = "The user already exists!";
         }
       } else {
         this.errorMessage = "All fields are required!";

@@ -93,6 +93,7 @@ export const useEventsStore = defineStore("events", {
     ],
   }),
 
+
   persist: {
     storage: localStorage,
     pick: ["shows", "workshops"],

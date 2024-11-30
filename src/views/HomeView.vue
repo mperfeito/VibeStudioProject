@@ -7,13 +7,24 @@
     <router-link to="/login">
       <a href="login">login</a>
     </router-link>
-   
+ 
   </div>
 </template>
 
 <script>
-
-export default {};
+import { useUsersStore } from "@/stores/users.js";
+export default {
+  data() {
+    return {
+      store: useUsersStore(),
+    };
+  },
+  methods: {
+    logoutUser() {
+      this.store.logout();
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

@@ -48,9 +48,6 @@ export const useTicketsStore = defineStore("tickets", {
       return false;
     },
   },
-
-  persist: {
-    storage: localStorage,
-    pick: ["tickets"],
-  },
+  persist: true,
+ 
 });
