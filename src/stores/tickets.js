@@ -47,6 +47,17 @@ export const useTicketsStore = defineStore("tickets", {
       }
       return false;
     },
+    editPack(packId, name, price, total) {
+      const selectedPack = this.tickets.find((e) => e.id === packId);
+      if (selectedPack) {
+        selectedPack.name = name;
+        selectedPack.price = price;
+        selectedPack.total = total;
+      }
+    },
   },
-  persist: true,
+  persist: {
+    storage: localStorage,
+    pick: ["tickets"],
+  },
 });

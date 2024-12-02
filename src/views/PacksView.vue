@@ -25,16 +25,33 @@
                   Select day
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Friday</a></li>
-                  <li><a class="dropdown-item" href="#">Saturday</a></li>
                   <li>
-                    <a class="dropdown-item" href="#">Sunday</a>
+                    <a
+                      @click="selectedDay = 'Friday'"
+                      class="dropdown-item"
+                      href="#"
+                      >Friday</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      @click="selectedDay = 'Saturday'"
+                      class="dropdown-item"
+                      href="#"
+                      >Saturday</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      @click="selectedDay = 'Sunday'"
+                      class="dropdown-item"
+                      href="#"
+                      >Sunday</a
+                    >
                   </li>
                 </ul>
               </div>
-              <router-link
-                :to="{ name: 'payment', params: { idPack: t.id } }"
-              >
+              <router-link :to="{ name: 'payment', params: { idPack: t.id } }">
                 <button class="btn btn-dark">Pay</button>
               </router-link>
             </div>
@@ -50,12 +67,10 @@ import { useTicketsStore } from "@/stores/tickets.js";
 export default {
   data() {
     return {
-    
+      selectedDay: "",
       store: useTicketsStore(),
-    
     };
   },
-
 };
 </script>
 

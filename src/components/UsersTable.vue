@@ -4,7 +4,7 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>id</th>
+            <th>#</th>
             <th>name</th>
             <th>email</th>
             <th>status</th>
@@ -13,7 +13,7 @@
         </thead>
         <tbody>
           <tr v-for="user in store.users" :key="user.id">
-            <td>{{ user.id }}</td>
+            <td>#{{ user.id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.blocked ? "blocked" : "unblocked" }}</td>

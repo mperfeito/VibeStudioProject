@@ -8,6 +8,7 @@ export const useEventsStore = defineStore("events", {
         name: "Rhythm of the Streets",
         type: "Breakdance show",
         hours: "10:00 AM - 10:45 AM",
+        day: "Friday",
         price: 15,
         totalSeats: 78,
         availableSeats: 78,
@@ -17,6 +18,7 @@ export const useEventsStore = defineStore("events", {
         name: "Urban Flow",
         type: "Hip-Hop show",
         hours: "11:15 AM - 12:00 AM",
+        day: "Friday",
         price: 15,
         totalSeats: 78,
         availableSeats: 78,
@@ -26,6 +28,7 @@ export const useEventsStore = defineStore("events", {
         name: "Caribbean Heat",
         type: "Salsa show",
         hours: "10:00 AM - 10:45 AM",
+        day: "Saturday",
         price: 15,
         totalSeats: 78,
         availableSeats: 78,
@@ -34,8 +37,8 @@ export const useEventsStore = defineStore("events", {
         id: 4,
         name: "Beats of the Heart",
         type: "Bachata show",
-
         hours: "11:15 AM - 12:00 AM",
+        day: "Saturday",
         price: 15,
         totalSeats: 78,
         availableSeats: 78,
@@ -45,6 +48,7 @@ export const useEventsStore = defineStore("events", {
         name: "Dream on Pointe",
         type: "Ballet show",
         hours: "10:00 AM - 10:45 AM",
+        day: "Sunday",
         price: 15,
         totalSeats: 78,
         availableSeats: 78,
@@ -54,6 +58,7 @@ export const useEventsStore = defineStore("events", {
         name: "Infinite Movements",
         type: "Contemporary show",
         hours: "11:15 AM - 12:00 AM",
+        day: "Sunday",
         price: 15,
         totalSeats: 78,
         availableSeats: 78,
@@ -64,6 +69,7 @@ export const useEventsStore = defineStore("events", {
         name: "Freestyle",
         type: "Urban dance workshop",
         hours: "14:00 PM - 15:30 PM",
+        day: "Friday",
         price: 15,
         totalSeats: 23,
         availableSeats: 23,
@@ -73,6 +79,7 @@ export const useEventsStore = defineStore("events", {
         name: "Popping & Locking",
         type: "Urban dance workshop",
         hours: "16:00 PM - 17:30 PM",
+        day: "Friday",
         price: 15,
         totalSeats: 23,
         availableSeats: 23,
@@ -82,6 +89,7 @@ export const useEventsStore = defineStore("events", {
         name: "Rumba",
         type: "Latin dance workshop",
         hours: "14:00 PM - 15:30 PM",
+        day: "Saturday",
         price: 15,
         totalSeats: 23,
         availableSeats: 23,
@@ -91,6 +99,7 @@ export const useEventsStore = defineStore("events", {
         name: "Bachata",
         type: "Latin dance workshop",
         hours: "16:00 PM - 17:30 PM",
+        day: "Saturday",
         price: 15,
         totalSeats: 23,
         availableSeats: 23,
@@ -100,6 +109,7 @@ export const useEventsStore = defineStore("events", {
         name: "Classic technique",
         type: "Classic dance workshop",
         hours: "14:00 PM - 15:30 PM",
+        day: "Sunday",
         price: 15,
         totalSeats: 23,
         availableSeats: 23,
@@ -109,6 +119,7 @@ export const useEventsStore = defineStore("events", {
         name: "Improvisation contemporary",
         type: "Classic dance workshop",
         hours: "16:00 PM - 17:30 PM",
+        day: "Sunday",
         price: 15,
         totalSeats: 23,
         availableSeats: 23,
@@ -124,10 +135,19 @@ export const useEventsStore = defineStore("events", {
       }
       return false;
     },
+    editEvent(eventId, name, type, price, seats) {
+      const selectedEvent = this.events.find((e) => e.id === eventId);
+      if (selectedEvent) {
+        selectedEvent.name = name;
+        selectedEvent.type = type;
+        selectedEvent.price = price
+        selectedEvent.seats = seats;
+      }
+    },
   },
 
   persist: {
     storage: localStorage,
-    pick: ["shows", "workshops"],
+    pick: ["events"],
   },
 });
