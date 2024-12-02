@@ -2,11 +2,13 @@ import { defineStore } from "pinia";
 
 export const useEventsStore = defineStore("events", {
   state: () => ({
-    shows: [
+    events: [
       {
         id: 1,
         name: "Rhythm of the Streets",
         type: "Breakdance show",
+        hours: "10:00 AM - 10:45 AM",
+        price: 15,
         totalSeats: 78,
         availableSeats: 78,
       },
@@ -14,6 +16,8 @@ export const useEventsStore = defineStore("events", {
         id: 2,
         name: "Urban Flow",
         type: "Hip-Hop show",
+        hours: "11:15 AM - 12:00 AM",
+        price: 15,
         totalSeats: 78,
         availableSeats: 78,
       },
@@ -21,6 +25,8 @@ export const useEventsStore = defineStore("events", {
         id: 3,
         name: "Caribbean Heat",
         type: "Salsa show",
+        hours: "10:00 AM - 10:45 AM",
+        price: 15,
         totalSeats: 78,
         availableSeats: 78,
       },
@@ -28,6 +34,9 @@ export const useEventsStore = defineStore("events", {
         id: 4,
         name: "Beats of the Heart",
         type: "Bachata show",
+
+        hours: "11:15 AM - 12:00 AM",
+        price: 15,
         totalSeats: 78,
         availableSeats: 78,
       },
@@ -35,6 +44,8 @@ export const useEventsStore = defineStore("events", {
         id: 5,
         name: "Dream on Pointe",
         type: "Ballet show",
+        hours: "10:00 AM - 10:45 AM",
+        price: 15,
         totalSeats: 78,
         availableSeats: 78,
       },
@@ -42,6 +53,8 @@ export const useEventsStore = defineStore("events", {
         id: 6,
         name: "Infinite Movements",
         type: "Contemporary show",
+        hours: "11:15 AM - 12:00 AM",
+        price: 15,
         totalSeats: 78,
         availableSeats: 78,
       },
@@ -50,6 +63,8 @@ export const useEventsStore = defineStore("events", {
         id: 7,
         name: "Freestyle",
         type: "Urban dance workshop",
+        hours: "14:00 PM - 15:30 PM",
+        price: 15,
         totalSeats: 23,
         availableSeats: 23,
       },
@@ -57,6 +72,8 @@ export const useEventsStore = defineStore("events", {
         id: 8,
         name: "Popping & Locking",
         type: "Urban dance workshop",
+        hours: "16:00 PM - 17:30 PM",
+        price: 15,
         totalSeats: 23,
         availableSeats: 23,
       },
@@ -64,6 +81,8 @@ export const useEventsStore = defineStore("events", {
         id: 9,
         name: "Rumba",
         type: "Latin dance workshop",
+        hours: "14:00 PM - 15:30 PM",
+        price: 15,
         totalSeats: 23,
         availableSeats: 23,
       },
@@ -71,6 +90,8 @@ export const useEventsStore = defineStore("events", {
         id: 10,
         name: "Bachata",
         type: "Latin dance workshop",
+        hours: "16:00 PM - 17:30 PM",
+        price: 15,
         totalSeats: 23,
         availableSeats: 23,
       },
@@ -78,6 +99,8 @@ export const useEventsStore = defineStore("events", {
         id: 11,
         name: "Classic technique",
         type: "Classic dance workshop",
+        hours: "14:00 PM - 15:30 PM",
+        price: 15,
         totalSeats: 23,
         availableSeats: 23,
       },
@@ -85,11 +108,23 @@ export const useEventsStore = defineStore("events", {
         id: 12,
         name: "Improvisation contemporary",
         type: "Classic dance workshop",
+        hours: "16:00 PM - 17:30 PM",
+        price: 15,
         totalSeats: 23,
         availableSeats: 23,
       },
     ],
   }),
+  actions: {
+    buyIndividualEvent(eventId, quantity) {
+      const event = this.events.find((e) => e.id === eventId);
+      if (event && event.availableSeats > 0) {
+        event.availableSeats -= quantity;
+        return true;
+      }
+      return false;
+    },
+  },
 
   persist: {
     storage: localStorage,

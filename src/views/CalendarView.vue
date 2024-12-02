@@ -34,7 +34,7 @@
             <p class="card-text">Seats Available: {{ workshop.availableSeats }}</p>
           </div>
           <div class="text-end me-2 mb-2">
-            <router-link :to="{ name: 'payment', params: { idEvent: workshop.id } }">
+            <router-link :to="{ name: 'payment', params: { idEvent: workshop.id , idPack: 1} }">
               <i class="bi bi-plus-square-fill"></i>
             </router-link>
           </div>
@@ -60,8 +60,8 @@ export default {
   },
   methods: {
     filterEvents() {
-      this.shows = this.store.shows.filter(event => event.type.includes('show'));
-      this.workshops = this.store.shows.filter(event => event.type.includes('workshop'));
+      this.shows = this.store.events.filter(event => event.type.includes('show'));
+      this.workshops = this.store.events.filter(event => event.type.includes('workshop'));
     },
   },
 };

@@ -31,9 +31,14 @@ const router = createRouter({
     component: () => import('../views/CalendarView.vue')
    },
    {
-    path:'/payment/:idEvent',
+    path:'/payment/:idEvent/:idPack',
     name:'payment',
     component: () => import('../views/PaymentView.vue')
+   },
+   {
+    path:'/packs',
+    name:'packs',
+    component: () => import('../views/PacksView.vue')
    }
   ],
 });

@@ -11,20 +11,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="e in store.shows" :key="e.id">
+        <tr v-for="e in store.events" :key="e.id">
           <td>{{ e.id }}</td>
           <td>{{ e.name }}</td>
           <td>{{ e.type }}</td>
           <td>{{ e.totalSeats }}</td>
           <td>{{ e.availableSeats }}</td>
         </tr>
-        <tr v-for="e in store.workshops" :key="e.id">
-          <td>{{ e.id }}</td>
-          <td>{{ e.name }}</td>
-          <td>{{ e.type }}</td>
-          <td>{{ e.totalSeats }}</td>
-          <td>{{ e.availableSeats }}</td>
-        </tr>
+      
       </tbody>
     </table>
   </div>

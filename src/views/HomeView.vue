@@ -10,6 +10,9 @@
     <router-link to="/calendar">
       <a href="login">calendar</a>
     </router-link>
+    <router-link to="/packs">
+      <a href="login">packs</a>
+    </router-link>
     <button @click="logoutUser()" class="btn btn-dark">Logout</button>
   </div>
 </template>
