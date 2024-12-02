@@ -48,36 +48,26 @@
 </template>
 
 <script>
-import { useUsersStore } from "@/stores/users.js";
 export default {
   data() {
     return {
-      store: useUsersStore(),
       email: "",
       password: "",
-      loginMessage: "",
     };
+  },
+  props: {
+    loginMessage: String,
   },
   methods: {
     checkLogin() {
       if (this.email && this.password) {
-        if (this.store.login(this.email, this.password)) {
-          if (this.store.currentUser.id === 0) {
-            this.$router.push("/admin");
-          } else {
-            this.$router.push("/");
-          }
-        } else {
-          this.loginMessage =
-            "Login failed. Please check your email and password.";
-        }
+        this.$emit("login", this.email, this.password);
       } else {
-        this.loginMessage = "All fields are required!";
+        this.$emit("login", null, null);
       }
       this.email = "";
       this.password = "";
     },
-    
   },
 };
 </script>

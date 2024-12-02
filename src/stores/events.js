@@ -45,46 +45,44 @@ export const useEventsStore = defineStore("events", {
         totalSeats: 78,
         availableSeats: 78,
       },
-    ],
 
-    workshops: [
       {
-        id: 1,
+        id: 7,
         name: "Freestyle",
         type: "Urban dance workshop",
         totalSeats: 23,
         availableSeats: 23,
       },
       {
-        id: 2,
+        id: 8,
         name: "Popping & Locking",
         type: "Urban dance workshop",
         totalSeats: 23,
         availableSeats: 23,
       },
       {
-        id: 3,
+        id: 9,
         name: "Rumba",
         type: "Latin dance workshop",
         totalSeats: 23,
         availableSeats: 23,
       },
       {
-        id: 4,
+        id: 10,
         name: "Bachata",
         type: "Latin dance workshop",
         totalSeats: 23,
         availableSeats: 23,
       },
       {
-        id: 5,
+        id: 11,
         name: "Classic technique",
         type: "Classic dance workshop",
         totalSeats: 23,
         availableSeats: 23,
       },
       {
-        id: 6,
+        id: 12,
         name: "Improvisation contemporary",
         type: "Classic dance workshop",
         totalSeats: 23,
@@ -92,7 +90,6 @@ export const useEventsStore = defineStore("events", {
       },
     ],
   }),
-
 
   persist: {
     storage: localStorage,

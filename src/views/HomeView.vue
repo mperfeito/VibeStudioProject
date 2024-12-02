@@ -7,7 +7,10 @@
     <router-link to="/login">
       <a href="login">login</a>
     </router-link>
- 
+    <router-link to="/calendar">
+      <a href="login">calendar</a>
+    </router-link>
+    <button @click="logoutUser()" class="btn btn-dark">Logout</button>
   </div>
 </template>
 

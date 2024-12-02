@@ -46,10 +46,10 @@
             v-model="password"
           />
           <div class="text-end mb-3">
-            <span class="text-danger">{{ errorMessage }}</span>
+            <span class="text-danger">{{ registerMessage }}</span>
           </div>
 
-          <button @click="registerUser" class="btn btn-dark">SIGN UP</button>
+          <button @click="registerUser()" class="btn btn-dark">SIGN UP</button>
         </div>
       </div>
     </div>
@@ -57,37 +57,25 @@
 </template>
 
 <script>
-import { useUsersStore } from "@/stores/users.js";
-
 export default {
   data() {
     return {
       name: "",
       email: "",
       password: "",
-      errorMessage: "",
     };
   },
-  computed: {
-    store() {
-      return useUsersStore();
-    },
+  props: {
+    registerMessage: String,
   },
+
   methods: {
     registerUser() {
       if (this.name && this.email && this.password) {
-        const userExists = this.store.users.some((u) => u.email === this.email);
-
-        if (!userExists) {
-          this.store.addUser(this.name, this.email, this.password);
-          this.$router.push("/");
-        } else {
-          this.errorMessage = "The user already exists!";
-        }
+        this.$emit("register", this.name, this.email, this.password);
       } else {
-        this.errorMessage = "All fields are required!";
+        this.$emit("register", null, null, null);
       }
-
       this.name = "";
       this.email = "";
       this.password = "";

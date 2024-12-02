@@ -49,5 +49,4 @@ export const useTicketsStore = defineStore("tickets", {
     },
   },
   persist: true,
- 
 });

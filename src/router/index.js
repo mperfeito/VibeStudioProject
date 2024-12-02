@@ -25,6 +25,16 @@ const router = createRouter({
       component: () => import("../views/AdminView.vue"),
       meta: { requiresAdmin: true },
     },
+   {
+    path:'/calendar',
+    name:'calendar',
+    component: () => import('../views/CalendarView.vue')
+   },
+   {
+    path:'/payment/:idEvent',
+    name:'payment',
+    component: () => import('../views/PaymentView.vue')
+   }
   ],
 });
 
