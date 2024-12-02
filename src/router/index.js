@@ -31,7 +31,7 @@ const router = createRouter({
     component: () => import('../views/CalendarView.vue')
    },
    {
-    path:'/payment/:idEvent/:idPack',
+    path:'/payment/:idEvent?/:idPack?',
     name:'payment',
     component: () => import('../views/PaymentView.vue')
    },

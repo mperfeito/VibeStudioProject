@@ -33,7 +33,7 @@
                 </ul>
               </div>
               <router-link
-                :to="{ name: 'payment', params: { idEvent: 1, idPack: t.id } }"
+                :to="{ name: 'payment', params: { idPack: t.id } }"
               >
                 <button class="btn btn-dark">Pay</button>
               </router-link>
@@ -50,9 +50,12 @@ import { useTicketsStore } from "@/stores/tickets.js";
 export default {
   data() {
     return {
+    
       store: useTicketsStore(),
+    
     };
   },
+
 };
 </script>
 

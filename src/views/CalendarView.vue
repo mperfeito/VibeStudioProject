@@ -1,6 +1,6 @@
 <template>
+  
   <div class="container my-4">
-    <!-- Shows Section -->
     <h2 class="text-center mb-4">Shows</h2>
     <div class="row">
       <div v-for="show in shows" :key="show.id" class="col-md-4 mb-4">
@@ -11,7 +11,9 @@
             <p class="card-text">Seats Available: {{ show.availableSeats }}</p>
           </div>
           <div class="text-end me-2 mb-2">
-            <router-link :to="{ name: 'payment', params: { idEvent: show.id } }">
+            <router-link
+              :to="{ name: 'payment', params: { idEvent: show.id } }"
+            >
               <i class="bi bi-plus-square-fill"></i>
             </router-link>
           </div>
@@ -19,7 +21,6 @@
       </div>
     </div>
 
-    <!-- Workshops Section -->
     <h2 class="text-center mb-4 mt-5">Workshops</h2>
     <div class="row">
       <div
@@ -31,10 +32,14 @@
           <div class="card-body">
             <h5 class="card-title">{{ workshop.name }}</h5>
             <p class="card-text">Type: {{ workshop.type }}</p>
-            <p class="card-text">Seats Available: {{ workshop.availableSeats }}</p>
+            <p class="card-text">
+              Seats Available: {{ workshop.availableSeats }}
+            </p>
           </div>
           <div class="text-end me-2 mb-2">
-            <router-link :to="{ name: 'payment', params: { idEvent: workshop.id , idPack: 1} }">
+            <router-link
+              :to="{ name: 'payment', params: { idEvent: workshop.id } }"
+            >
               <i class="bi bi-plus-square-fill"></i>
             </router-link>
           </div>
@@ -60,13 +65,15 @@ export default {
   },
   methods: {
     filterEvents() {
-      this.shows = this.store.events.filter(event => event.type.includes('show'));
-      this.workshops = this.store.events.filter(event => event.type.includes('workshop'));
+      this.shows = this.store.events.filter((event) =>
+        event.type.includes("show")
+      );
+      this.workshops = this.store.events.filter((event) =>
+        event.type.includes("workshop")
+      );
     },
   },
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

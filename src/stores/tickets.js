@@ -39,10 +39,10 @@ export const useTicketsStore = defineStore("tickets", {
   }),
 
   actions: {
-    buyTicket(ticketId) {
+    buyTicket(ticketId, quantity) {
       const ticket = this.tickets.find((t) => t.id === ticketId);
       if (ticket && ticket.availableTickets > 0) {
-        ticket.availableTickets--;
+        ticket.availableTickets -= quantity;
         return true;
       }
       return false;

@@ -1,79 +1,68 @@
 <template>
-  <div class="container my-4">
-    <div v-if="selectedEvent" class="card">
-      <div class="card-body">
-        <h2 class="card-title text-center mb-4">{{ selectedEvent.name }}</h2>
-
-        <p class="card-text text-center mb-3">
-          <strong>Hours:</strong>
-          {{ selectedEvent.hours }}
-        </p>
-        <p class="card-text text-center mb-3">
-          <strong>Total Price:</strong>
-          {{ totalPrice() }} €
-        </p>
-        <p class="card-text text-center mb-3">
-          <strong>Quantity:</strong>
-          <i @click="addMoreTickets" class="bi bi-plus-square-fill"></i>
-          {{ ticketsNumber }}
-          <i @click="removeTickets" class="bi bi-dash-square-fill"></i>
-        </p>
-        <div class="text-center">
-          <button
-            @click="payEventTicket(selectedEvent.id)"
-            class="btn btn-dark"
-          >
-            Pay
-          </button>
-       
-        </div>
-      </div>
-    </div>
-    <span>{{ paymentMessage }}</span>
-
- 
-  </div>
+  <PacksDisplay
+    :selectedPack="selectedPack"
+    @pay-pack="payPack"
+    :message="packMessage"
+  ></PacksDisplay>
+  <EventsDisplay
+    :selectedEvent="selectedEvent"
+    @pay-event="payIndividualTicket"
+    :message="ticketMessage"
+  ></EventsDisplay>
 </template>
 
 <script>
 import { useEventsStore } from "@/stores/events";
+import { useTicketsStore } from "@/stores/tickets";
+import PacksDisplay from "@/components/PacksDisplay.vue";
+import EventsDisplay from "@/components/EventsDisplay.vue";
 
 export default {
+  components: {
+    PacksDisplay,
+    EventsDisplay,
+  },
   data() {
     return {
       eventId: null,
-      store: useEventsStore(),
+      packId: null,
+      eventsStore: useEventsStore(),
+      ticketsStore: useTicketsStore(),
       selectedEvent: null,
-      ticketsNumber: 0,
-      paymentMessage: "",
+      selectedPack: null,
+      ticketMessage: "",
+      packMessage: "",
     };
   },
   mounted() {
     this.eventId = this.$route.params.idEvent;
-    this.selectedEvent = this.store.events.find(
-      (ticket) => ticket.id === Number(this.eventId)
+    this.selectedEvent = this.eventsStore.events.find(
+      (e) => e.id === Number(this.eventId)
+    );
+    this.packId = this.$route.params.idPack;
+    this.selectedPack = this.ticketsStore.tickets.find(
+      (t) => t.id === Number(this.packId)
     );
   },
   methods: {
-    payEventTicket(id) {
-      const sucess = this.store.buyIndividualEvent(id, this.ticketsNumber);
+    payPack(idPack, quantity) {
+      const sucess = this.ticketsStore.buyTicket(idPack, quantity);
       if (sucess) {
-        this.paymentMessage =
+        this.packMessage =
           "Your tickets have been purchased successfully! Thank you.";
       } else {
-        this.paymentMessage = "Purchase failed";
+        this.packMessage = "Purchase failed";
       }
     },
-    addMoreTickets() {
-      this.ticketsNumber++;
-    },
-    removeTickets() {
-      if (this.ticketsNumber > 0) {
-        this.ticketsNumber--;
+
+    payIndividualTicket(idEvent, quantity) {
+      const sucess = this.eventsStore.buyIndividualEvent(idEvent, quantity);
+      if (sucess) {
+        this.ticketMessage =
+          "Your tickets have been purchased successfully! Thank you.";
+      } else {
+        this.ticketMessage = "Purchase failed";
       }
-    },
-    totalPrice() {
-      return this.ticketsNumber * this.selectedEvent.price;
     },
   },
 };
