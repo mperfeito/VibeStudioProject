@@ -47,14 +47,24 @@ export const useTicketsStore = defineStore("tickets", {
       }
     },
 
-    editPack(packId, name, price, total) {
-      const selectedPack = this.tickets.find((e) => e.id === packId);
+    editPack() {
+      const selectedPack = this.store.tickets.find(
+        (t) => t.id === this.selectedId
+      );
+
       if (selectedPack) {
-        selectedPack.name = name;
-        selectedPack.price = price;
-        selectedPack.total = total;
+        if (this.name && this.name !== selectedPack.name) {
+          selectedPack.name = this.name;
+        }
+        if (this.price && this.price !== selectedPack.price) {
+          selectedPack.price = this.price;
+        }
+        if (this.number && this.number !== selectedPack.totalTickets) {
+          selectedPack.totalTickets = this.number;
+        }
       }
     },
+
     setSelectedDay(day) {
       this.selectedDay = day;
     },

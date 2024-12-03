@@ -9,7 +9,8 @@ export const useUsersStore = defineStore("users", {
         email: "admin@gmail.com",
         password: "admin123",
         blocked: false,
-        tickets: ''
+        tickets: "",
+        registerDate: new Date().toISOString(),
       },
       {
         id: 1,
@@ -17,7 +18,8 @@ export const useUsersStore = defineStore("users", {
         email: "mperfeito.08@gmail.com",
         password: "mariana123",
         blocked: false,
-        tickets: ''
+        tickets: "",
+        registerDate: new Date().toISOString(),
       },
       {
         id: 2,
@@ -25,7 +27,8 @@ export const useUsersStore = defineStore("users", {
         email: "isabelmagalhães.08@gmail.com",
         password: "isabel123",
         blocked: false,
-        tickets: ''
+        tickets: "",
+        registerDate: new Date().toISOString(),
       },
     ],
     currentUser: null,
@@ -39,6 +42,7 @@ export const useUsersStore = defineStore("users", {
         email: email,
         password: password,
         blocked: false,
+        registerDate: new Date().toISOString(),
       };
       this.users.push(newUser);
     },
@@ -78,12 +82,11 @@ export const useUsersStore = defineStore("users", {
     logout() {
       this.currentUser = null;
       localStorage.clear();
-     
     },
   },
 
   persist: {
-    storage:localStorage,
-    pick:['users']
-  }
+    storage: localStorage,
+    pick: ["users"],
+  },
 });

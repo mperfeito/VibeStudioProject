@@ -2,7 +2,7 @@
   <div>
     <table class="table table-striped table-hover">
       <thead>
-        <tr >
+        <tr>
           <th>#</th>
           <th>event</th>
           <th>type</th>
@@ -19,7 +19,7 @@
           <td>{{ e.type }}</td>
           <td>{{ e.totalSeats }}</td>
           <td class="text-primary">{{ e.availableSeats }}</td>
-          <td class="text-danger"> {{ e.totalSeats - e.availableSeats }}</td>
+          <td class="text-danger">{{ e.totalSeats - e.availableSeats }}</td>
           <td><i class="bi bi-pencil-fill" @click="openModal(e.id)"></i></td>
         </tr>
       </tbody>
@@ -125,17 +125,27 @@ export default {
       this.showModal = true;
     },
     editEvent() {
-      if (this.name || this.type || this.price || this.seats) {
-        this.store.editEvent(
-          this.selectedId,
-          this.name,
-          this.type,
-          this.price,
-          this.seats
-        );
+      const selectedEvent = this.store.events.find(
+        (e) => e.id === this.selectedId
+      );
+
+      if (selectedEvent) {
+        if (this.name && this.name !== selectedEvent.name) {
+          selectedEvent.name = this.name;
+        }
+        if (this.type && this.type !== selectedEvent.type) {
+          selectedEvent.type = this.type;
+        }
+        if (this.price && this.price !== selectedEvent.price) {
+          selectedEvent.price = this.price;
+        }
+        if (this.seats && this.seats !== selectedEvent.totalSeats) {
+          selectedEvent.totalSeats = this.seats;
+        }
       }
-      this.clearInputs();
+      this.clearInputs;
     },
+
     closeModal() {
       this.showModal = false;
       this.selectedId = 0;

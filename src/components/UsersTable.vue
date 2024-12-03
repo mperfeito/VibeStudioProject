@@ -1,12 +1,13 @@
 <template>
   <div>
-    <div>
-      <table class="table table-striped table-hover">
+    <div >
+      <table class="table table-striped table-hover ">
         <thead>
           <tr>
             <th>#</th>
             <th>name</th>
             <th>email</th>
+            <th>register</th>
             <th>status</th>
             <th>action</th>
           </tr>
@@ -16,6 +17,7 @@
             <td>#{{ user.id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
+            <td>{{ formattedDate(user.registerDate) }}</td>
             <td :class="user.blocked ? 'text-warning' : 'text-success'">
               {{ user.blocked ? "blocked" : "unblocked" }}
             </td>
@@ -110,6 +112,13 @@ export default {
     closeModal() {
       this.showModal = false;
       this.selectedId = -1;
+    },
+    formattedDate(date) {
+      const parsedDate = Date.parse(date);
+      if (isNaN(parsedDate)) {
+        return "Invalid date";
+      }
+      return new Intl.DateTimeFormat("en-US").format(new Date(parsedDate));
     },
   },
 };

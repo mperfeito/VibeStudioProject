@@ -1,8 +1,8 @@
 <template>
   <div class="d-flex">
-    <table class="table table-striped table-hover ">
+    <table class="table table-striped table-hover">
       <thead>
-        <tr >
+        <tr style="background-color: var(--bs-tertiary-color)">
           <th>#</th>
           <th>pack</th>
           <th>price</th>
@@ -20,8 +20,10 @@
           <td>€{{ t.price }}</td>
           <td>{{ t.totalTickets }}</td>
           <td class="text-primary">{{ t.availableTickets }}</td>
-          <td> {{ t.totalTickets - t.availableTickets }}</td>
-          <td class="text-success"> € {{ (t.totalTickets - t.availableTickets) * t.price }}</td>
+          <td>{{ t.totalTickets - t.availableTickets }}</td>
+          <td class="text-success">
+            € {{ (t.totalTickets - t.availableTickets) * t.price }}
+          </td>
           <td><i class="bi bi-pencil-fill" @click="openModal(t.id)"></i></td>
         </tr>
       </tbody>
@@ -113,11 +115,24 @@ export default {
       this.showModal = true;
     },
     editPack() {
-      if(this.name || this.price || this.number) {
+      const selectedPack = this.store.tickets.find(
+        (t) => t.id === this.selectedId
+      );
 
-        this.store.editPack(this.selectedId, this.name, this.price, this.number);
+      if (selectedPack) {
+        if (this.name && this.name !== selectedPack.name) {
+          selectedPack.name = this.name;
+        }
+        if (this.price && this.price !== selectedPack.price) {
+          selectedPack.price = this.price;
+        }
+        if (this.number && this.number !== selectedPack.totalTickets) {
+          selectedPack.totalTickets = this.number;
+        }
       }
+      this.clearInputs;
     },
+
     closeModal() {
       this.showModal = false;
       this.selectedId = 0;
@@ -125,6 +140,11 @@ export default {
     handleClick() {
       this.editPack();
       this.closeModal();
+    },
+    clearInputs() {
+      this.name = "";
+      this.price = "";
+      this.number = "";
     },
   },
 };
