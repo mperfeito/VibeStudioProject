@@ -49,11 +49,9 @@ export default {
           this.$emit("pay-pack-1", idPack, this.packsNumber);
         } else if (idPack === 2) {
           this.$emit("pay-pack-2", idPack, this.packsNumber);
-        } else if (id === 3) {
+        } else   {
           this.$emit("pay-pack-3", idPack, this.packsNumber);
-        } else {
-          this.$emit("pay-pack-4", idPack, this.packsNumber);
-        }
+        } 
       }
     },
     addPacks() {

@@ -143,7 +143,7 @@ export const useEventsStore = defineStore("events", {
         selectedEvent.type = type;
         selectedEvent.price = price;
         selectedEvent.totalSeats = seats;
-        selectedEvent.availableSeats = seats; // Make sure to update availableSeats
+        selectedEvent.availableSeats = seats; 
       }
     },
   

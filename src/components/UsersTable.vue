@@ -3,7 +3,7 @@
     <div>
       <table class="table table-striped table-hover">
         <thead>
-          <tr >
+          <tr>
             <th>#</th>
             <th>name</th>
             <th>email</th>
@@ -49,14 +49,24 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body d-flex flex-column">
-            <div class="d-flex mb-2">
-              <span class="me-2"> Delete User </span>
-              <i @click="deleteUser()" class="bi bi-x-circle text-danger"></i>
+          <div class="modal-body d-flex">
+            <div class="d-flex me-2 align-items-center">
+              <button @click="deleteUser()" class="btn btn-outline-danger">
+                <span class="me-2"> Delete User </span>
+                <i class="bi bi-x-circle"></i>
+              </button>
             </div>
-            <div class="d-flex">
-              <span class="me-2"> Block User </span>
-              <i @click="blockUser()" class="bi bi-ban text-warning"></i>
+            <div class="d-flex me-2 align-items-center">
+              <button @click="blockUser()" class="btn btn-outline-warning">
+                <span class="me-2"> Block User </span>
+                <i class="bi bi-ban"></i>
+              </button>
+            </div>
+            <div class="d-flex align-items-center">
+              <button @click="unBlockUser()" class="btn btn-outline-success">
+                <span class="me-2"> Unblock User </span>
+                <i class="bi bi-ban"></i>
+              </button>
             </div>
           </div>
           <div class="modal-footer">
@@ -93,6 +103,9 @@ export default {
     },
     blockUser() {
       this.store.blockUser(this.selectedId);
+    },
+    unBlockUser() {
+      this.store.unBlockUser(this.selectedId);
     },
     closeModal() {
       this.showModal = false;

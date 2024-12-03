@@ -1,7 +1,6 @@
 <template>
   <div class="container-fluid vh-100 d-flex align-items-stretch p-0 m-0">
     <div class="row flex-grow-1 w-100 m-0">
-      <!-- Coluna da mensagem de boas-vindas -->
       <div
         class="col-4 d-flex justify-content-center align-items-center text-center p-0"
         style="background-color: #b84eff; height: 100vh"
@@ -17,8 +16,6 @@
           </router-link>
         </div>
       </div>
-
-      <!-- Coluna de criação de conta -->
       <div class="col-8 d-flex justify-content-center align-items-center p-0">
         <div class="text-center w-50">
           <h1>Create Account</h1>

@@ -59,6 +59,12 @@ export const useUsersStore = defineStore("users", {
         user.blocked = true;
       }
     },
+    unBlockUser(id) {
+      const user = this.users.find((u) => u.id == id);
+      if (user) {
+        user.blocked = false;
+      }
+    },
     login(email, password) {
       const user = this.users.find(
         (u) => u.email === email && u.password === password
@@ -71,6 +77,7 @@ export const useUsersStore = defineStore("users", {
     },
     logout() {
       this.currentUser = null;
+      localStorage.clear();
      
     },
   },

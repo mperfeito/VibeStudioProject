@@ -44,10 +44,9 @@ export const useTicketsStore = defineStore("tickets", {
       const ticket = this.tickets.find((t) => t.id === ticketId);
       if (ticket && ticket.availableTickets > 0) {
         ticket.availableTickets -= quantity;
-        return true;
       }
-      return false;
     },
+
     editPack(packId, name, price, total) {
       const selectedPack = this.tickets.find((e) => e.id === packId);
       if (selectedPack) {

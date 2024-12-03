@@ -5,7 +5,7 @@
     @pay-pack-1="payPack1"
     @pay-pack-2="payPack2"
     @pay-pack-3="payPack3"
-    @pay-pack-4="payPack4"
+    @pay-pack-4="payIndividualTicket"
     :message="packMessage"
   ></PacksDisplay>
   <EventsDisplay
@@ -53,14 +53,15 @@ export default {
 
   methods: {
     payPack1(idPack, quantity) {
-      let sucess = false;
+      let success = false;
       if (idPack === 1) {
-        sucess = this.eventsStore.removeSeatsByShows(
+        success = this.eventsStore.removeSeatsByShows(
           quantity,
           this.selectedDay
         );
+        this.ticketsStore.buyTicket(idPack, quantity);
       }
-      if (sucess) {
+      if (success) {
         this.packMessage =
           "Your tickets have been purchased successfully! Thank you.";
       } else {
@@ -69,14 +70,15 @@ export default {
     },
 
     payPack2(idPack, quantity) {
-      let sucess = false;
+      let success = false;
       if (idPack === 2) {
-        sucess = this.eventsStore.removeSeatsByWorkshops(
+        success = this.eventsStore.removeSeatsByWorkshops(
           quantity,
           this.selectedDay
         );
+        this.ticketsStore.buyTicket(idPack, quantity);
       }
-      if (sucess) {
+      if (success) {
         this.packMessage =
           "Your tickets have been purchased successfully! Thank you.";
       } else {
@@ -85,28 +87,31 @@ export default {
     },
 
     payPack3(idPack, quantity) {
-      let sucess = false;
+      let success = false;
       if (idPack === 3) {
-        sucess = this.eventsStore.removeSeatsByDay(
-          quantity,
-          this.selectedDay
-        );
+        success = this.eventsStore.removeSeatsByDay(quantity, this.selectedDay);
+        this.ticketsStore.buyTicket(idPack, quantity);
       }
-      if (sucess) {
+      if (success) {
         this.packMessage =
           "Your tickets have been purchased successfully! Thank you.";
       } else {
         this.packMessage = "Purchase failed";
       }
     },
- 
+
     payIndividualTicket(idEvent, quantity) {
-      const sucess = this.eventsStore.buyIndividualEvent(idEvent, quantity);
+      let sucess = false;
+      sucess = this.eventsStore.buyIndividualEvent(idEvent, quantity);
       if (sucess) {
         this.ticketMessage =
           "Your tickets have been purchased successfully! Thank you.";
       } else {
         this.ticketMessage = "Purchase failed";
+      }
+      const pack = this.ticketsStore.tickets.find((t) => t.id === 4);
+      if (pack) {
+        pack.availableTickets -= quantity;
       }
     },
   },
