@@ -36,6 +36,7 @@ export const useTicketsStore = defineStore("tickets", {
         availableTickets: 100,
       },
     ],
+    selectedDay: "",
   }),
 
   actions: {
@@ -54,6 +55,9 @@ export const useTicketsStore = defineStore("tickets", {
         selectedPack.price = price;
         selectedPack.total = total;
       }
+    },
+    setSelectedDay(day) {
+      this.selectedDay = day;
     },
   },
   persist: {

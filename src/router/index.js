@@ -45,13 +45,18 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const store = useUsersStore();
-  const user = store.users.find((u) => u.email === store.currentUser?.email );
+  const user = store.users.find((u) => u.email === store.currentUser?.email);
 
-  if (to.meta.requiresAdmin && user.id !== 0) {
-    next("/home");
+  if (to.meta.requiresAdmin) {
+    if (!user || user.id !== 0) {
+      next("/"); 
+    } else {
+      next(); 
+    }
   } else {
-    next();
+    next(); 
   }
 });
+
 
 export default router;

@@ -9,6 +9,7 @@ export const useUsersStore = defineStore("users", {
         email: "admin@gmail.com",
         password: "admin123",
         blocked: false,
+        tickets: ''
       },
       {
         id: 1,
@@ -16,6 +17,7 @@ export const useUsersStore = defineStore("users", {
         email: "mperfeito.08@gmail.com",
         password: "mariana123",
         blocked: false,
+        tickets: ''
       },
       {
         id: 2,
@@ -23,6 +25,7 @@ export const useUsersStore = defineStore("users", {
         email: "isabelmagalhães.08@gmail.com",
         password: "isabel123",
         blocked: false,
+        tickets: ''
       },
     ],
     currentUser: null,
@@ -68,8 +71,12 @@ export const useUsersStore = defineStore("users", {
     },
     logout() {
       this.currentUser = null;
+     
     },
   },
 
-  persist: true,
+  persist: {
+    storage:localStorage,
+    pick:['users']
+  }
 });

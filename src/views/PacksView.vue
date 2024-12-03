@@ -17,6 +17,7 @@
             <div class="d-flex">
               <div class="dropdown me-2">
                 <button
+                  v-if="t.id !== 4"
                   class="btn btn-secondary dropdown-toggle"
                   type="button"
                   data-bs-toggle="dropdown"
@@ -27,7 +28,7 @@
                 <ul class="dropdown-menu">
                   <li>
                     <a
-                      @click="selectedDay = 'Friday'"
+                      @click="store.setSelectedDay('Friday')"
                       class="dropdown-item"
                       href="#"
                       >Friday</a
@@ -35,7 +36,7 @@
                   </li>
                   <li>
                     <a
-                      @click="selectedDay = 'Saturday'"
+                      @click="store.setSelectedDay('Saturday')"
                       class="dropdown-item"
                       href="#"
                       >Saturday</a
@@ -43,7 +44,7 @@
                   </li>
                   <li>
                     <a
-                      @click="selectedDay = 'Sunday'"
+                      @click="store.setSelectedDay('Sunday')"
                       class="dropdown-item"
                       href="#"
                       >Sunday</a
@@ -51,8 +52,14 @@
                   </li>
                 </ul>
               </div>
-              <router-link :to="{ name: 'payment', params: { idPack: t.id } }">
+              <router-link
+                v-if="t.id !== 4"
+                :to="{ name: 'payment', params: { idPack: t.id } }"
+              >
                 <button class="btn btn-dark">Pay</button>
+              </router-link>
+              <router-link v-else :to="{ name: 'calendar' }">
+                <button class="btn btn-secondary">See calendar</button>
               </router-link>
             </div>
           </div>

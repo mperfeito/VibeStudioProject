@@ -1,23 +1,27 @@
 <template>
   <div class="d-flex">
-    <table class="table table-hover">
+    <table class="table table-striped table-hover ">
       <thead>
-        <tr>
+        <tr >
           <th>#</th>
           <th>pack</th>
           <th>price</th>
           <th>total tickets</th>
           <th>available</th>
+          <th>sold</th>
+          <th>profit</th>
           <th>edit</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="table-group-divider">
         <tr v-for="t in store.tickets" :key="t.id">
           <td>#{{ t.id }}</td>
           <td>{{ t.name }}</td>
           <td>€{{ t.price }}</td>
           <td>{{ t.totalTickets }}</td>
-          <td>{{ t.availableTickets }}</td>
+          <td class="text-primary">{{ t.availableTickets }}</td>
+          <td> {{ t.totalTickets - t.availableTickets }}</td>
+          <td class="text-success"> € {{ (t.totalTickets - t.availableTickets) * t.price }}</td>
           <td><i class="bi bi-pencil-fill" @click="openModal(t.id)"></i></td>
         </tr>
       </tbody>

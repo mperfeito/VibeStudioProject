@@ -129,20 +129,53 @@ export const useEventsStore = defineStore("events", {
   actions: {
     buyIndividualEvent(eventId, quantity) {
       const event = this.events.find((e) => e.id === eventId);
-      if (event && event.availableSeats > 0) {
+      if (event && event.availableSeats >= quantity) {
         event.availableSeats -= quantity;
         return true;
       }
       return false;
     },
+  
     editEvent(eventId, name, type, price, seats) {
       const selectedEvent = this.events.find((e) => e.id === eventId);
       if (selectedEvent) {
         selectedEvent.name = name;
         selectedEvent.type = type;
-        selectedEvent.price = price
-        selectedEvent.seats = seats;
+        selectedEvent.price = price;
+        selectedEvent.totalSeats = seats;
+        selectedEvent.availableSeats = seats; // Make sure to update availableSeats
       }
+    },
+  
+    removeSeatsByShows(quantity, day) {
+      const selectedShows = this.events.filter(
+        (e) => e.type.toLowerCase().includes("show") && e.day === day
+      );
+      if (selectedShows.length > 0) {
+        selectedShows.forEach((s) => (s.availableSeats -= quantity));
+        return true;
+      }
+      return false;
+    },
+  
+    removeSeatsByWorkshops(quantity, day) {
+      const selectedWorkshops = this.events.filter(
+        (e) => e.type.toLowerCase().includes("workshop") && e.day === day
+      );
+      if (selectedWorkshops.length > 0) {
+        selectedWorkshops.forEach((s) => (s.availableSeats -= quantity));
+        return true;
+      }
+      return false;
+    },
+  
+    removeSeatsByDay(quantity, day) {
+      const selectedEvents = this.events.filter((e) => e.day === day);
+      if (selectedEvents.length > 0) {
+        selectedEvents.forEach((e) => (e.availableSeats -= quantity));
+        return true;
+      }
+      return false;
     },
   },
 

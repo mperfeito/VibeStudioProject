@@ -1,25 +1,25 @@
 <template>
   <div>
-    <table class="table table-hover">
+    <table class="table table-striped table-hover">
       <thead>
-        <tr>
+        <tr >
           <th>#</th>
           <th>event</th>
           <th>type</th>
-          <th>price</th>
           <th>total seats</th>
           <th>available</th>
+          <th>occupied</th>
           <th>edit</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="table-group-divider">
         <tr v-for="e in store.events" :key="e.id">
           <td>#{{ e.id }}</td>
           <td>{{ e.name }}</td>
           <td>{{ e.type }}</td>
-          <td>€{{ e.price }}</td>
           <td>{{ e.totalSeats }}</td>
-          <td>{{ e.availableSeats }}</td>
+          <td class="text-primary">{{ e.availableSeats }}</td>
+          <td class="text-danger"> {{ e.totalSeats - e.availableSeats }}</td>
           <td><i class="bi bi-pencil-fill" @click="openModal(e.id)"></i></td>
         </tr>
       </tbody>
@@ -134,10 +134,17 @@ export default {
           this.seats
         );
       }
+      this.clearInputs();
     },
     closeModal() {
       this.showModal = false;
       this.selectedId = 0;
+    },
+    clearInputs() {
+      this.name = "";
+      this.type = "";
+      this.price = "";
+      this.setas = "";
     },
     handleClick() {
       this.editEvent();

@@ -1,7 +1,7 @@
 <template>
   <div
-    class="d-flex flex-column align-items-center justify-content-center bg-light p-3"
-    style="width: 80px; height: 100vh"
+    class="d-flex flex-column align-items-center justify-content-center p-3"
+    style="width: 80px; height: 100vh; background-color: var(--bs-dark-bg-subtle);"
   >
     <div class="text-start my-4">
       <i

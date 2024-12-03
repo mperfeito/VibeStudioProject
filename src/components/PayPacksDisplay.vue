@@ -14,11 +14,14 @@
             {{ packsNumber }}
             <i @click="removePacks" class="bi bi-dash-square-fill"></i>
           </p>
+          <p class="text-center mb-3">
+            <strong>Day:</strong>
+            {{ store.selectedDay }}
+          </p>
           <button @click="payPack(selectedPack.id)" class="btn btn-dark">
             Pay
           </button>
         </div>
-      
       </div>
     </div>
     <span>{{ message }}</span>
@@ -26,20 +29,31 @@
 </template>
 
 <script>
+import { useTicketsStore } from "@/stores/tickets.js";
 export default {
   data() {
     return {
+      store: useTicketsStore(),
       packsNumber: 0,
     };
   },
   props: {
     selectedPack: Object,
+    selectedDay: String,
     message: String,
   },
   methods: {
     payPack(idPack) {
       if (this.packsNumber > 0) {
-        this.$emit("pay-pack", idPack, this.packsNumber);
+        if (idPack === 1) {
+          this.$emit("pay-pack-1", idPack, this.packsNumber);
+        } else if (idPack === 2) {
+          this.$emit("pay-pack-2", idPack, this.packsNumber);
+        } else if (id === 3) {
+          this.$emit("pay-pack-3", idPack, this.packsNumber);
+        } else {
+          this.$emit("pay-pack-4", idPack, this.packsNumber);
+        }
       }
     },
     addPacks() {

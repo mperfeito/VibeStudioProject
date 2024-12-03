@@ -1,9 +1,9 @@
 <template>
   <div>
     <div>
-      <table class="table table-hover">
+      <table class="table table-striped table-hover">
         <thead>
-          <tr>
+          <tr >
             <th>#</th>
             <th>name</th>
             <th>email</th>
@@ -11,12 +11,14 @@
             <th>action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="table-group-divider">
           <tr v-for="user in store.users" :key="user.id">
             <td>#{{ user.id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
-            <td>{{ user.blocked ? "blocked" : "unblocked" }}</td>
+            <td :class="user.blocked ? 'text-warning' : 'text-success'">
+              {{ user.blocked ? "blocked" : "unblocked" }}
+            </td>
             <td>
               <i
                 v-if="user.id !== 0"
@@ -114,5 +116,4 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1040;
 }
-
 </style>

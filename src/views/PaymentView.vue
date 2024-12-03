@@ -1,7 +1,11 @@
 <template>
   <PacksDisplay
+    :slectedDay="selectedDay"
     :selectedPack="selectedPack"
-    @pay-pack="payPack"
+    @pay-pack-1="payPack1"
+    @pay-pack-2="payPack2"
+    @pay-pack-3="payPack3"
+    @pay-pack-4="payPack4"
     :message="packMessage"
   ></PacksDisplay>
   <EventsDisplay
@@ -14,8 +18,8 @@
 <script>
 import { useEventsStore } from "@/stores/events";
 import { useTicketsStore } from "@/stores/tickets";
-import PacksDisplay from "@/components/PacksDisplay.vue";
-import EventsDisplay from "@/components/EventsDisplay.vue";
+import PacksDisplay from "@/components/PayPacksDisplay.vue";
+import EventsDisplay from "@/components/PayEventsDisplay.vue";
 
 export default {
   components: {
@@ -30,6 +34,7 @@ export default {
       ticketsStore: useTicketsStore(),
       selectedEvent: null,
       selectedPack: null,
+      selectedDay: "",
       ticketMessage: "",
       packMessage: "",
     };
@@ -43,10 +48,18 @@ export default {
     this.selectedPack = this.ticketsStore.tickets.find(
       (t) => t.id === Number(this.packId)
     );
+    this.selectedDay = this.ticketsStore.selectedDay;
   },
+
   methods: {
-    payPack(idPack, quantity) {
-      const sucess = this.ticketsStore.buyTicket(idPack, quantity);
+    payPack1(idPack, quantity) {
+      let sucess = false;
+      if (idPack === 1) {
+        sucess = this.eventsStore.removeSeatsByShows(
+          quantity,
+          this.selectedDay
+        );
+      }
       if (sucess) {
         this.packMessage =
           "Your tickets have been purchased successfully! Thank you.";
@@ -55,6 +68,38 @@ export default {
       }
     },
 
+    payPack2(idPack, quantity) {
+      let sucess = false;
+      if (idPack === 2) {
+        sucess = this.eventsStore.removeSeatsByWorkshops(
+          quantity,
+          this.selectedDay
+        );
+      }
+      if (sucess) {
+        this.packMessage =
+          "Your tickets have been purchased successfully! Thank you.";
+      } else {
+        this.packMessage = "Purchase failed";
+      }
+    },
+
+    payPack3(idPack, quantity) {
+      let sucess = false;
+      if (idPack === 3) {
+        sucess = this.eventsStore.removeSeatsByDay(
+          quantity,
+          this.selectedDay
+        );
+      }
+      if (sucess) {
+        this.packMessage =
+          "Your tickets have been purchased successfully! Thank you.";
+      } else {
+        this.packMessage = "Purchase failed";
+      }
+    },
+ 
     payIndividualTicket(idEvent, quantity) {
       const sucess = this.eventsStore.buyIndividualEvent(idEvent, quantity);
       if (sucess) {
