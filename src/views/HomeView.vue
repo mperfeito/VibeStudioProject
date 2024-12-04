@@ -2,7 +2,7 @@
   <div>
         <nav class="navbar navbar-expand-lg" style="background-color: #B84EFF; font-family:'Ysabeau Infant' ;">
         <div class="container-fluid">
-            <a class="navbar-brand" style="margin-left: 2%; margin: 1%; height: 60px;" href="#"><img style="height: 60px;" src="../assets/homepageAssets/logoBranco.png" alt=""></a>
+            <a class="navbar-brand" style="margin-left: 2%; margin: 1%; height: 60px;" href="#"><img style="height: 60px;" src="../assets/logo/logoBranco.png" alt=""></a>
             
             <div class="nav justify-content-end"  id="navbarSupportedContent" style="margin-right: 1%;" >
                 <ul class="nav ">     <!-- nav-underline -->
