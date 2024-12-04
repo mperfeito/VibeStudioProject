@@ -5,7 +5,7 @@
             <a class="navbar-brand" style="margin-left: 2%; margin: 1%; height: 60px;" href="#"><img style="height: 60px;" src="../assets/logo/logoBranco.png" alt=""></a>
             
             <div class="nav justify-content-end"  id="navbarSupportedContent" style="margin-right: 1%;" >
-                <ul class="nav ">     <!-- nav-underline -->
+                <ul class="nav ">     
                 <li class="nav-item">
                     <a class="nav-link active" style="color: white;"  aria-current="page" href="#">About us</a>
                 </li> 
@@ -29,7 +29,7 @@
             </div>
         </nav>
     </div> 
-<!-- mariana -->
+
   <div>
     <h1>Homepage</h1>
     <router-link to="/register">
@@ -59,6 +59,7 @@ export default {
   methods: {
     logoutUser() {
       this.store.logout();
+      localStorage.clear();
     },
   },
 };

@@ -8,6 +8,7 @@ export const useTicketsStore = defineStore("tickets", {
         name: "Pack 1 - Shows",
         image: "",
         price: 55,
+        profit:0,
         totalTickets: 70,
         availableTickets: 70,
       },
@@ -16,6 +17,7 @@ export const useTicketsStore = defineStore("tickets", {
         name: "Pack 2 - Workshops",
         image: "",
         price: 55,
+        profit:0,
         totalTickets: 70,
         availableTickets: 70,
       },
@@ -24,6 +26,7 @@ export const useTicketsStore = defineStore("tickets", {
         name: "Pack 3 - Full Day",
         image: "",
         price: 48,
+        profit:0,
         totalTickets: 70,
         availableTickets: 70,
       },
@@ -32,6 +35,7 @@ export const useTicketsStore = defineStore("tickets", {
         name: "Pack 4 - Individual",
         image: "",
         price: 15,
+        profit:0,
         totalTickets: 100,
         availableTickets: 100,
       },
@@ -68,6 +72,7 @@ export const useTicketsStore = defineStore("tickets", {
     setSelectedDay(day) {
       this.selectedDay = day;
     },
+   
   },
   persist: {
     storage: localStorage,
