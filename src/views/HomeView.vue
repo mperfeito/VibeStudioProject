@@ -59,6 +59,7 @@ export default {
   methods: {
     logoutUser() {
       this.store.logout();
+      local
     },
   },
 };
