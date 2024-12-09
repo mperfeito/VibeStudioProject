@@ -79,6 +79,16 @@ export const useUsersStore = defineStore("users", {
       }
       return false;
     },
+    loginWithGoogle(googleUser) {
+      const user = {
+        id: googleUser.getId(),
+        name: googleUser.getBasicProfile().getName(),
+        email: googleUser.getBasicProfile().getEmail(),
+        blocked: false,
+        registerDate: new Date().toISOString(),
+      };
+      this.currentUser = user;
+    },
     logout() {
       this.currentUser = null;
       localStorage.clear();
