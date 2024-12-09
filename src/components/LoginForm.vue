@@ -25,9 +25,11 @@
               <span class="text-danger">{{ loginMessage }}</span>
             </div>
           </div>
-          <button @click="checkLogin()" class="btn btn-dark">SIGN IN</button>
-          <button @click="handleGoogleLogin" class="btn btn-danger mt-3">
-            Login with Google
+          <button @click="checkLogin()" class="btn btn-dark">
+            Login with email
+          </button>
+          <button @click="handleGoogleLogin" class="btn btn-outline-dark mt-3">
+            <i class="bi bi-google"></i> Login with Google
           </button>
         </div>
       </div>
@@ -75,7 +77,7 @@ export default {
       gapi.load("auth2", () => {
         const auth2 = gapi.auth2.init({
           client_id:
-            "307719871437-9fenbrfdk2824gqc8pee3d80q70h0nql.apps.googleusercontent.com", 
+            "307719871437-9fenbrfdk2824gqc8pee3d80q70h0nql.apps.googleusercontent.com",
         });
 
         auth2.signIn().then((googleUser) => {
