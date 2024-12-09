@@ -26,6 +26,9 @@
             </div>
           </div>
           <button @click="checkLogin()" class="btn btn-dark">SIGN IN</button>
+          <button @click="handleGoogleLogin" class="btn btn-danger mt-3">
+            Login with Google
+          </button>
         </div>
       </div>
       <div
@@ -35,7 +38,7 @@
         <div>
           <h1 class="text-light">Hello, Friend!</h1>
           <p class="mb-5 text-light">
-            Don’t have a account? Don’t worry! <br />
+            Don’t have an account? Don’t worry! <br />
             Enter with your personal information
           </p>
           <router-link :to="'/register'">
@@ -67,6 +70,18 @@ export default {
       }
       this.email = "";
       this.password = "";
+    },
+    handleGoogleLogin() {
+      gapi.load("auth2", () => {
+        const auth2 = gapi.auth2.init({
+          client_id:
+            "307719871437-9fenbrfdk2824gqc8pee3d80q70h0nql.apps.googleusercontent.com", 
+        });
+
+        auth2.signIn().then((googleUser) => {
+          this.$emit("loginWithGoogle", googleUser);
+        });
+      });
     },
   },
 };
