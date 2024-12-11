@@ -25,12 +25,14 @@
               <span class="text-danger">{{ loginMessage }}</span>
             </div>
           </div>
+          <div class="d-grid gap-2 col-6 mx-auto">
           <button @click="checkLogin()" class="btn btn-dark">
             Login with email
           </button>
-          <button @click="handleGoogleLogin" class="btn btn-outline-dark mt-3">
+          <button @click="handleGoogleLogin" class="btn btn-outline-dark mt-1">
             <i class="bi bi-google"></i> Login with Google
           </button>
+        </div>
         </div>
       </div>
       <div
