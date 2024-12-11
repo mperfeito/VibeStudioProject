@@ -1,7 +1,6 @@
 <template>
   <div class="d-flex">
     <SideBarAdmin @change-content="setContent"></SideBarAdmin>
-
     <div class="flex-grow-1 d-flex justify-content-center align-items-center">
       <component :is="currentComponent" />
     </div>

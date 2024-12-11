@@ -9,8 +9,9 @@ export const useUsersStore = defineStore("users", {
         email: "admin@gmail.com",
         password: "admin123",
         blocked: false,
-        tickets: "",
         registerDate: new Date().toISOString(),
+        tickets: [],
+        notifications: [],
       },
       {
         id: 1,
@@ -18,8 +19,9 @@ export const useUsersStore = defineStore("users", {
         email: "mperfeito.08@gmail.com",
         password: "mariana123",
         blocked: false,
-        tickets: "",
         registerDate: new Date().toISOString(),
+        tickets: [],
+        notifications: [],
       },
       {
         id: 2,
@@ -27,8 +29,9 @@ export const useUsersStore = defineStore("users", {
         email: "isabelmagalhães.08@gmail.com",
         password: "isabel123",
         blocked: false,
-        tickets: "",
         registerDate: new Date().toISOString(),
+        tickets: [],
+        notifications: [],
       },
     ],
     currentUser: null,
@@ -43,6 +46,8 @@ export const useUsersStore = defineStore("users", {
         password: password,
         blocked: false,
         registerDate: new Date().toISOString(),
+        tickets: [],
+        notifications: [],
       };
       this.users.push(newUser);
     },
@@ -93,6 +98,22 @@ export const useUsersStore = defineStore("users", {
       this.currentUser = null;
       localStorage.clear();
     },
+    sendNotification(userEmails, message) {
+      let success = false;
+      userEmails.forEach((email) => {
+        const user = this.users.find((u) => u.email === email);
+        if (user) {
+          if (!user.notifications) {
+            user.notifications = [];
+          }
+          user.notifications.push(message);
+          success = true;
+        }
+      });
+      return success;
+    },
+    
+  
   },
 
   persist: {
