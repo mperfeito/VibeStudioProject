@@ -118,6 +118,6 @@ export const useUsersStore = defineStore("users", {
 
   persist: {
     storage: localStorage,
-    pick: ["users"],
+    pick: ["users", 'currentUser'],
   },
 });

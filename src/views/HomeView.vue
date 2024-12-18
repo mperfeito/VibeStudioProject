@@ -44,6 +44,9 @@
     <router-link to="/packs">
       <a href="login">packs</a>
     </router-link>
+    <router-link to="/profile">
+      <a href="login">profile</a>
+    </router-link>
     <button @click="logoutUser()" class="btn btn-dark">Logout</button>
   </div>
 </template>
