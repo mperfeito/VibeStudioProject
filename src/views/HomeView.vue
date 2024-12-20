@@ -1,6 +1,6 @@
 <template>  
 <div>
-    <NavBar @change-content="setContent"></NavBar>
+    
   </div>  
   <div> 
     <h1>Homepage</h1>
@@ -10,20 +10,17 @@
     <router-link to="/login">
       <a href="login">login</a>
     </router-link>
-    <router-link to="/calendar">
-      <a href="login">calendar</a>
-    </router-link>
-    <router-link to="/packs">
-      <a href="login">packs</a>
-    </router-link>
+    
+    
     <button @click="logoutUser()" class="btn btn-dark">Logout</button>
   </div>
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
+
 import { useUsersStore } from "@/stores/users.js";
-export default {
+export default { 
+
   data() {
     return {
       store: useUsersStore(),

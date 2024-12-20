@@ -9,12 +9,14 @@
                 <li class="nav-item">
                     <a class="nav-link active" style="color: white;"  aria-current="page" href="#">About us</a>
                 </li> 
-                <li class="nav-item">
-                    <a class="nav-link active" style="color: white;" aria-current="page" href="#">Calendar</a>
+                <li class="nav-item"> 
+                    <router-link to="/calendar">
+                        <a class="nav-link active" style="color: white;" aria-current="page" href="#">Calendar</a>
+                    </router-link>   
                 </li> 
-                <li class="nav-item">
-                    <a class="nav-link active" style="color: white;"  aria-current="page" href="#">Packs</a>
-                </li> 
+                <router-link to="/packs">
+                        <a class="nav-link active" style="color: white;" aria-current="page" href="#">Packs</a>
+                </router-link> 
                 <li class="nav-item">
                     <a class="nav-link active" style="color: white;"  aria-current="page" href="#">Workshops</a>
                 </li> 
