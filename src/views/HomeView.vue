@@ -27,7 +27,11 @@ export default {
   methods: { 
     logoutUser() {
       this.store.logout();
+<<<<<<< HEAD
       localStorage.clear();
+=======
+      local
+>>>>>>> 2c6a67e (changes)
     },
   },
 };
