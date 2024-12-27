@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div class="container my-4">
     <div class="row">
       <div v-for="event in store.events" :key="event.id" class="col-md-4 mb-4">

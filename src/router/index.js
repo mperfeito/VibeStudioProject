@@ -39,6 +39,21 @@ const router = createRouter({
     path:'/packs',
     name:'packs',
     component: () => import('../views/PacksView.vue')
+   },  
+   { 
+    path:'/about', 
+    name:'about', 
+    component: () => import('../views/AboutUsView.vue')
+   }, 
+   { 
+    path:'/workshops',
+    name:'workshops', 
+    component: () => import('../views/WorkshopsView.vue')
+   }, 
+   { 
+    path:'/count', 
+    name:'count', 
+    component: () => import('../components/CountDown.vue')
    }
   ],
 });
