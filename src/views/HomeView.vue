@@ -9,7 +9,7 @@
         <div  class="first_text"> 
             <h1 class="label"> Dance  Festival</h1> 
             <p class="content"> A vibrant celebration of movement, culture, and artistic expression, bringing together dancers, choreographers, and audiences to showcase various styles and traditions.</p> 
-            <button class="Btn"> Tickets</button> 
+            <router-link to="/packs" class="Btn">Tickets</router-link>
         </div>
         <video autoplay loop muted class="img1"><source src="../assets/homepage/video-homepage.mp4" type="video/mp4"></video>
     </div> 
@@ -85,9 +85,9 @@
             <img class="img4" src="/src/assets/homepage/img4.png" alt="">   
         </div>  
         <div class="rect4"> 
-            <label for="">Workshops</label> <br>
-            <p>Feel the rhythm and ignite your passion! Whether you’re a beginner or a pro, our dance workshops are the perfect place to grow, groove, and connect.</p> 
-            <button>see more</button>
+            <label class="rect_label" for="">Workshops</label> <br>
+            <p class="rect_cont">Feel the rhythm and ignite your passion! Whether you’re a beginner or a pro, our dance workshops are the perfect place to grow, groove, and connect.</p> 
+            <router-link to="/workshops" class="Btn">see more</router-link>
         </div> 
     </div> 
 
@@ -147,6 +147,8 @@
 
 <script>
 
+import CountDown from "@/components/CountDown.vue";
+import router from "@/router";
 import { useUsersStore } from "@/stores/users.js";
 export default { 
 
@@ -225,6 +227,7 @@ export default {
     text-transform: uppercase;
     font-family: 'Ysabeau Infant' ; 
     margin-top: 2%;
+    text-decoration: none;
 } 
 
 .second_container{  
@@ -433,14 +436,31 @@ export default {
     z-index: -100;
 } 
 .rect4{    
-    display: block ; 
-    z-index: 1000; 
+    padding: 2%; 
+    padding-bottom: 20%; 
+    z-index: 1; 
     background-color: #B84EFF; 
     width: 40%;
     margin-right: auto; 
     margin-left: auto; 
     
-}  
+}   
+
+.rect_label{  
+  font-family: "Ysabeau Infant";
+  font-weight: bolder;
+  color: white;
+  font-size: 50px;
+  margin-top: 2%;
+} 
+
+.rect_cont{ 
+  font-family: "Ysabeau Infant" ; 
+  font-weight: normal;
+  font-size: 30px; 
+  margin-top: 2%; 
+  color: white;
+}
 
 //section 4 
 .fifth_container{ 

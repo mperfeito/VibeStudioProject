@@ -4,7 +4,8 @@ export const useTicketsStore = defineStore("tickets", {
   state: () => ({
     tickets: [
       {
-        id: 1,
+        id: 1, 
+        image:"/src/assets/packs/pack1.png",
         name: "Pack 1 - Shows",
         image: "",
         price: 55,

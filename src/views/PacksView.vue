@@ -1,4 +1,5 @@
-<template>
+<template> 
+<h1 class="label">Buy Your Ticket Now, choose one of our packs !</h1>
   <div class="container my-5">
     <div class="row">
       <div class="col-md-3 mb-4" v-for="t in store.tickets" :key="t.id">
@@ -7,7 +8,8 @@
             :src="t.image || 'https://via.placeholder.com/150'"
             class="card-img-top"
             alt="store Image"
-          /> -->
+          /> -->  
+          <img :src="t.image" alt="Ticket Image" class="ticket-image" />
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ t.name }}</h5>
             <p class="card-text"><strong>Price:</strong> {{ t.price }} €</p>
@@ -81,4 +83,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped>  
+.label{ 
+  font-family: "Ysabeau Infant";
+  font-weight: bolder;
+  color: #000000;
+  font-size: 50px;
+  margin-top: 2%; 
+  margin: 5%;
+}
+</style>
