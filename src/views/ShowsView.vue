@@ -1,82 +1,82 @@
 <template> 
 
-                                        <!-- section 1 -->
+    <!-- section 1 -->
 <div class="firts_container"> 
     <div> 
-        <h1 class="label">Explore Our Workshops!</h1> 
-        <p class="content">Unlock your potential with our diverse dance workshops! Whether you're a beginner or advanced, our expert instructors will help you refine your skills and discover new styles. Join us and get inspired!</p>
+        <h1 class="label">Join Us for an Unforgettable Performance!</h1> 
+        <p class="content">Be part of an amazing showcase of talent and energy! Experience stunning choreography, powerful performances, and a celebration of dance that you won’t want to miss.</p>
     </div> 
-    <img src="../assets/Workshops/img1.png" alt=""> 
+        <img src="../assets/Shows/img1.png" alt=""> 
     <div class="rect1"></div> 
 </div> 
 
 <div class="title"> 
-    <h1 class="label">Available Workshops</h1>
+    <h1 class="label">Available Shows</h1>
 </div> 
 
-                                        <!-- section 2 -->
+    <!-- section 2 -->
 <div class="second_container" > 
-    <img class="img2" src="../assets/Workshops/img2.png" alt="">  
+    <img class="img2" src="../assets/Shows/img2.png" alt="">  
     <div class="frame"></div> 
     <div class="info2"> 
-        <h1 class="label">Workshops  Urban Dance</h1>  
+        <h1 class="label">Shows Urban Dance </h1>  
         <div class="time"> 
             <p>January 3rd</p> 
-            <p> <img src="../assets/Workshops/clock 1.png" alt=""> 14:00 - 17:30</p> 
+            <p> <img src="../assets/Shows/clock 1.png" alt=""> 14:00 - 17:30</p> 
         </div >
         <h4>Styles Covered</h4> 
         <ul> 
-            <li>Freestyle</li> 
-            <li>Popping & Locking</li>
+        <li>Breakdance</li> 
+        <li>Hip-Hop</li>
         </ul> 
         <h2>Spots Left: 29</h2> 
-        <div> 
-            <router-link to="/calendar" class="btn2">See full calendar</router-link>
+        <div>  
+        <router-link to="/calendar" class="btn2">See full calendar</router-link>
         </div>
     </div>
 </div>
 
-                                        <!-- section 3 -->
+    <!-- section 3 -->
 
 <div class="third_container">   
     <div class="info3"> 
-        <h1 class="label">Workshops  Classic Dance</h1>  
+        <h1 class="label">Shows Classic Dance</h1>  
         <div class="time"> 
             <p>January 5rd</p> 
-            <p> <img src="../assets/Workshops/clock 1.png" alt=""> 14:00 - 17:30</p> 
+            <p> <img src="../assets/Shows/clock 1.png" alt=""> 14:00 - 17:30</p> 
         </div >
         <h4>Styles Covered</h4> 
         <ul> 
-            <li>Classic technique</li> 
-            <li>Improvisation Contemporary Dance</li>
+        <li>Ballet</li> 
+        <li>Comtemporany</li>
         </ul> 
         <h2>Spots Left: 29</h2> 
-        <div> 
-            <router-link to="/calendar" class="btn3">See full calendar</router-link>
-        </div>
+    <div>  
+        <router-link to="/calendar" class="btn3">See full calendar</router-link>
+    </div>
     </div> 
     <div class="imgs"> 
-        <img class="img3_1" src="../assets/Workshops/img3.png" alt=""> 
+        <img class="img3_1" src="../assets/Shows/img3.png" alt="">  
+        <div class="rect"></div>
     </div> 
 </div>
- 
 
-                                        <!-- section 4 -->
 
- 
+    <!-- section 4 -->
+
+
 <div class="fourth_container">     
-    <img class="img_5" src="../assets/Workshops/img5.png" alt="">  
-    <div class="rect"></div>
+    <img class="img_5" src="../assets/Shows/img5.png" alt="">  
     <div> 
-        <h1 class="label">Workshops Latin Dance</h1>  
+        <h1 class="label">Shows Latin Dance</h1>  
         <div class="time"> 
             <p>January 7rd</p> 
-            <p> <img src="../assets/Workshops/clock 1.png" alt=""> 14:00 - 17:30</p> 
+            <p> <img src="../assets/Shows/clock 1.png" alt=""> 14:00 - 17:30</p> 
         </div >
         <h4>Styles Covered</h4> 
-        <ul> 
-            <li>Rumba</li> 
-            <li>Bachata</li>
+         <ul> 
+        <li>Salsa</li> 
+        <li>Bachata</li>
         </ul> 
         <h2>Spots Left: 29</h2> 
         <div> 
@@ -90,22 +90,22 @@
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {
+
+}
 </script>
 
 <style lang="css" scoped>  
 * {
-    font-family: 'Ysabeau Infant';  
+font-family: 'Ysabeau Infant';  
 } 
 
 .label {
-  font-family: "Ysabeau Infant";
-  font-weight: bolder;
-  color: #000000;
-  font-size: 50px;
-  margin-top: 2%;
+    font-family: "Ysabeau Infant";
+    font-weight: bolder;
+    color: #000000;
+    font-size: 50px;
+    margin-top: 2%; 
 } 
 
 .content{ 
@@ -123,9 +123,9 @@
     display: flex; 
     flex-direction: row;
 }
- 
+
 .rect1{ 
-    background-color: #8A89D4;   
+    background-color: #B84EFF;   
     margin: none;  
     height: 650px; 
     width: 30%; 
@@ -136,7 +136,8 @@
 }
 
 
-.title{ 
+.title{  
+    padding-top: 5%;
     margin: 5%;
 } 
 
@@ -149,15 +150,13 @@
 } 
 
 
-
-
 .time{   
     margin-top: 5%;   
     border-bottom: 2px black solid;  
     border-top: 2px black solid; 
     display: flex; 
     flex-direction: row; 
-    font-size: 35px; 
+    font-size: 30px; 
     justify-content: center;  
     align-items: center;
     gap: 8%;
@@ -181,7 +180,7 @@ ul{
     align-items: center; 
     position: absolute;
     border: none; 
-    background-color: #8A89D4; 
+    background-color: #B84EFF; 
     color: white; 
     border-radius: 10px; 
     padding: 2%; 
@@ -199,7 +198,7 @@ ul{
     display: flex; 
     flex-direction: row; 
     margin: 5%; 
-    gap: 10%; 
+    gap: 15%; 
     position: relative;
 }  
 
@@ -212,7 +211,7 @@ ul{
     align-items: center; 
     position: absolute;
     border: none; 
-    background-color: #8A89D4; 
+    background-color: #B84EFF; 
     color: white; 
     border-radius: 10px; 
     padding: 2%; 
@@ -230,7 +229,7 @@ ul{
     display: flex; 
     flex-direction: row; 
     margin: 5%; 
-    gap: 15%; 
+    gap: 20%; 
     position: relative; 
     padding-bottom: 10%;
 }   
@@ -240,12 +239,12 @@ ul{
 }
 
 .rect{  
-    background-color: #8A89D4;   
+    background-color: #B84EFF;   
     margin:none;  
     height: 690px; 
     width: 35%; 
     z-index: -1; 
-    left: 0%;  
+    right: 0%;  
     top: 20%; 
     position: absolute; 
 }
