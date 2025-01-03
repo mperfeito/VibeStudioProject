@@ -151,7 +151,9 @@ import CountDown from "@/components/CountDown.vue";
 import router from "@/router";
 import { useUsersStore } from "@/stores/users.js";
 export default { 
-
+  components:{ 
+        CountDown,
+    },
   data() {
     return {
       store: useUsersStore(),
